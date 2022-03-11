@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md6">
+    <div class="container">
+      <h1 class="text-center display-1">User Deleted Successfully🚀</h1>
+      <p class="text-center ">You will redirect to Home-Page 🌻</p>
+      <p class="text-center" id="txt"> </p>
+      <div class="flex justify-center mt-0.5 font-medium">
+        <!-- Redirect countdown -->
+        <ng-container *ngIf="countdown > 0">
+            <div class="text-center display-6"> Redirecting in {{countdown | i18nPlural: countdownMapping }}</div> 
+        </ng-container>
+
+        <!-- Redirect message -->
+        <ng-container *ngIf="countdown === 0">
+            You are now being redirected! 
+        </ng-container>
+    </div>
+      <button class="btn btn-success" [routerLink]="['/users']">
+        Back to Home
+      </button>
+    </div>
+  </div>
+</div>

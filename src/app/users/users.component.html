@@ -1,0 +1,41 @@
+<h1 class="display-1 text-center">User's Stored Data</h1>
+<table class="table table-hover text-center">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Language</th>
+      <th scope="col">isMarried</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of userData">
+      <th scope="row">{{ record.id }}</th>
+      <td>{{ record.name }}</td>
+      <td>{{ record.email }}</td>
+      <td>{{ record.password }}</td>
+      <td>{{ record.gender }}</td>
+      <td>{{ record.language }}</td>
+      <td>
+      <div *ngIf="record.isMarried ;then trueBlock else falseBlock  "></div>
+        <ng-template #trueBlock>Married </ng-template>
+        <ng-template #falseBlock>Single</ng-template>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteUser(record.id)">
+          Delete
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-dark" (click)="updateUser(record.id)">
+          <a routerLink="/edit-user/{{ record.id }}">Update</a>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
